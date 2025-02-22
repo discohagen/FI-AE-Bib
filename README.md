@@ -1,0 +1,3 @@
+"Dieses Dokument dient als Sammlung und Dokumentation des erlernten Wissens im Rahmen der Ausbildung zum Fachinformatiker in der Fachrichtung Anwendungsentwicklung. Es ist ein umfassender Überblick über die Ausbildungsinhalte, die im Verlauf der dreijährigen Berufsausbildung bei der AXA AG und insbesondere am Georg-Simon-Ohm Berufskolleg in Köln 2023 bis 2026 vermittelt wurden. Ziel dieses Dokumentes ist es, die wesentlichen Lerninhalte zu strukturieren und so eine verständliche Übersicht über die verschiedenen Fachthemen zu bieten, die während der Ausbildung behandelt wurden.
+
+Dieses Dokument nennt hauptsächlich theoretisches Wissen, welches in der Berufsschule vermittelt wurde und oder welches von der IHK verlangt und geprüft wird."
