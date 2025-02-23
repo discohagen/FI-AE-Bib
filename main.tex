@@ -26,6 +26,9 @@
 \date{Stand: \today}
 
 \setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{0}
+
+\AddToHook{cmd/section/before}{\clearpage}
 
 \begin{document}
 
@@ -38,5 +41,7 @@
 \input{sections/einleitung.tex}
 
 \input{sections/lernfeld1.tex}
+
+\input{sections/lernfeld2.tex}
 
 \end{document}
