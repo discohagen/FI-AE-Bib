@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="26.0.14">
+  <diagram name="Seite-1" id="HClfMi2IX4F2c9Sbn61O">
+    <mxGraphModel dx="1202" dy="1105" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-1" value="Kooperation" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;startArrow=classic;startFill=1;" edge="1" parent="1" source="OlnF9OfeZmdLG1LFHqxI-3" target="OlnF9OfeZmdLG1LFHqxI-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-2" style="edgeStyle=none;shape=connector;rounded=1;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=default;startArrow=none;startFill=0;endArrow=classic;" edge="1" parent="1" source="OlnF9OfeZmdLG1LFHqxI-3" target="OlnF9OfeZmdLG1LFHqxI-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-3" value="Berufsschule" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-4" style="edgeStyle=none;shape=connector;rounded=1;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=default;startArrow=none;startFill=0;endArrow=classic;" edge="1" parent="1" source="OlnF9OfeZmdLG1LFHqxI-5" target="OlnF9OfeZmdLG1LFHqxI-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-5" value="Ausbildungsbetrieb" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-6" value="Bundesebene" style="edgeStyle=none;shape=connector;rounded=1;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=default;startArrow=classic;startFill=1;endArrow=classic;" edge="1" parent="1" source="OlnF9OfeZmdLG1LFHqxI-8" target="OlnF9OfeZmdLG1LFHqxI-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-7" style="edgeStyle=none;shape=connector;rounded=1;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=default;startArrow=none;startFill=0;endArrow=classic;" edge="1" parent="1" source="OlnF9OfeZmdLG1LFHqxI-8" target="OlnF9OfeZmdLG1LFHqxI-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-8" value="Rahmenplan" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-9" style="edgeStyle=none;shape=connector;rounded=1;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=default;startArrow=none;startFill=0;endArrow=classic;" edge="1" parent="1" source="OlnF9OfeZmdLG1LFHqxI-10" target="OlnF9OfeZmdLG1LFHqxI-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-10" value="Ausbildungsverordnung" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="100" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-11" value="Landesebene" style="edgeStyle=none;shape=connector;rounded=1;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=default;startArrow=classic;startFill=1;endArrow=classic;" edge="1" parent="1" source="OlnF9OfeZmdLG1LFHqxI-13" target="OlnF9OfeZmdLG1LFHqxI-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-12" style="edgeStyle=none;shape=connector;rounded=1;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=default;startArrow=none;startFill=0;endArrow=classic;" edge="1" parent="1" source="OlnF9OfeZmdLG1LFHqxI-13" target="OlnF9OfeZmdLG1LFHqxI-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-13" value="Lehrplan" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-14" style="edgeStyle=none;shape=connector;rounded=1;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=default;startArrow=none;startFill=0;endArrow=classic;" edge="1" parent="1" source="OlnF9OfeZmdLG1LFHqxI-15" target="OlnF9OfeZmdLG1LFHqxI-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-15" value="Ausbildungsrahmenplan" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="160" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-16" value="Ortsebene" style="edgeStyle=none;shape=connector;rounded=1;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=default;startArrow=classic;startFill=1;endArrow=classic;" edge="1" parent="1" source="OlnF9OfeZmdLG1LFHqxI-17" target="OlnF9OfeZmdLG1LFHqxI-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-17" value="Stoffverteilungsplan" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="OlnF9OfeZmdLG1LFHqxI-18" value="Ausbildungsplan" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="300" y="220" width="140" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

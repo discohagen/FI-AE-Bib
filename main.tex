@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 
 \usepackage{inputenc}
 \usepackage{fontenc}
@@ -16,36 +16,26 @@
 \usepackage{geometry}
 \usepackage{multirow}
 \usepackage{rotating}
+\usepackage{svg}
+\usepackage{tabulary}
+\usepackage{microtype}
 
 \addbibresource{.bib}
 
 \geometry{a4paper, top=25mm, left=25mm, right=25mm, bottom=25mm}
 
-\tolerance=1000
-
 \title{\Huge{Gesammeltes Wissen} \\ \Large{in der Ausbildung zum Fachinformatiker Anwendungsentwicklung in Köln 2023 bis 2026}}
 \author{Leon Ziegenhagen}
 \date{Stand: \today}
 
-\setcounter{tocdepth}{2}
-\setcounter{secnumdepth}{0}
-
-\AddToHook{cmd/section/before}{\clearpage}
-
 \begin{document}
 
 \maketitle
-\clearpage
 
 \tableofcontents
-\clearpage
 
-\input{sections/einleitung.tex}
+\input{chapter/einleitung.tex}
 
-\input{sections/lernfeld1/lernfeld1.tex}
-
-\input{sections/lernfeld2/lernfeld2.tex}
-
-\input{sections/lernfeld3/lernfeld3.tex}
+\input{chapter/lernfeld1/lernfeld1.tex}
 
 \end{document}
