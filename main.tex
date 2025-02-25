@@ -4,7 +4,6 @@
 \usepackage{fontenc}
 \usepackage{array}
 \usepackage{graphicx}
-\usepackage{hyperref}
 \usepackage[ngerman]{babel}
 \usepackage{tabularx}
 \usepackage{biblatex}
@@ -19,10 +18,21 @@
 \usepackage{svg}
 \usepackage{tabulary}
 \usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{svg}
 
 \addbibresource{.bib}
 
 \geometry{a4paper, top=25mm, left=25mm, right=25mm, bottom=25mm}
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}
+{}
+{0pt}
+{\Huge}
+
+\setcounter{secnumdepth}{-1}
 
 \title{\Huge{Gesammeltes Wissen} \\ \Large{in der Ausbildung zum Fachinformatiker Anwendungsentwicklung in Köln 2023 bis 2026}}
 \author{Leon Ziegenhagen}
@@ -37,5 +47,11 @@
 \input{chapter/einleitung.tex}
 
 \input{chapter/lernfeld1/lernfeld1.tex}
+
+\input{chapter/lernfeld2/lernfeld2.tex}
+
+\input{chapter/lernfeld3/lernfeld3.tex}
+
+\input{chapter/lernfeld9/lernfeld9.tex}
 
 \end{document}

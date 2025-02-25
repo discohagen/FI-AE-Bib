@@ -1,12 +1,11 @@
-\subsection{Handelskalkulation}
+\section{Handelskalkulation}
 
 Die Handelskalkulation wird intern in Netto berechnet. Der Listeneinkaufspreis und Listenverkaufspreis muss für außen also ggf. in Brutto umgerechnet werden.
 
-\textbf{Bezugskalkulation}
+\subsection{Bezugskalkulation}
 
 \begin{table}[H]
-    \centering
-    \begin{tabularx}{\textwidth}{c|X}
+    \begin{tabular}{c|l}
           & Listeneinkaufspreis (LEP)       \\
         \hline
         - & Lieferrabatt                    \\
@@ -20,38 +19,34 @@ Die Handelskalkulation wird intern in Netto berechnet. Der Listeneinkaufspreis u
         + & Bezugskosten (z.B Lieferkosten) \\
         \hline
         = & Bezugspreis / Einstandspreis    \\
-    \end{tabularx}
-    \caption{Schema Bezugskalkulation}
+    \end{tabular}
     \label{tab:bezugskalkulation}
 \end{table}
 
-\textbf{Quantitativer Angebotsvergleich}
+\subsection{Quantitativer Angebotsvergleich}
 
 Mithilfe der Bezugskalkulation wird häufig ein quantitativer Angebotsvergleich durchgeführt. Dabei wird der Bezugspreis der verschiedenen Anbieter verglichen, um den günstigsten Anbieter zu ermitteln.
 
-\textbf{Selbstkostenkalkulation im Handel}
+\subsection{Selbstkostenkalkulation im Handel}
 
 \begin{table}[H]
-    \centering
-    \begin{tabularx}{\textwidth}{c|X}
+    \begin{tabular}{c|l}
           & Bezugspreis     \\
         \hline
         + & Handlungskosten \\
         \hline
         = & Selbstkosten    \\
-    \end{tabularx}
-    \caption{Schema Selbstkostenkalkulation}
+    \end{tabular}
     \label{tab:selbstkostenkalkulation}
 \end{table}
 
 Handlungskosten sind alle Kosten im Unternehmen, welche nicht direkt dem Bezug von Ware zugeordnet werden können (z.B Personalkosten, Miete, Steuer). Handlungskosten werden meist prozentual als Handlungskostenzuschlag auf den Bezugspreis aufgeschlagen. Der Handlungskostenzuschlag ist dabei das Verhältnis von Handlungskosten zu Warenaufwänden in einer Periode.
 
-\textbf{Verkaufskalkulation}
+\subsection{Verkaufskalkulation}
 
 \begin{table}
     [H]
-    \centering
-    \begin{tabularx}{\textwidth}{c|X}
+    \begin{tabular}{c|l}
           & Selbstkosten              \\
         \hline
         + & Gewinn                    \\
@@ -65,8 +60,7 @@ Handlungskosten sind alle Kosten im Unternehmen, welche nicht direkt dem Bezug v
         + & Kundenrabatt              \\
         \hline
         = & Listenverkaufspreis (LVP) \\
-    \end{tabularx}
-    \caption{Schema Verkaufskalkulation}
+    \end{tabular}
     \label{tab:verkaufskalkulation}
 \end{table}
 
@@ -74,20 +68,23 @@ Achtung! Der Kundenskonto bezieht sich auf den Zielverkaufspreis und nicht den B
 
 Es gilt:
 
-$ZVP = BVP + \frac{BVP * Kundenskonto}{100\% - Kundenskonto}$
+\begin{center}
+    $ZVP = BVP + \frac{BVP * Kundenskonto}{100\% - Kundenskonto}$
+\end{center}
 
 und
 
-$LVP = ZVP + \frac{ZVP * Kundenrabatt}{100\% - Kundenrabatt}$
+\begin{center}
+    $LVP = ZVP + \frac{ZVP * Kundenrabatt}{100\% - Kundenrabatt}$
+\end{center}
 
-\textbf{Vollständige Handelskalkulation Vorwärts}
+\subsection{Vollständige Handelskalkulation Vorwärts}
 
 Die Vorwärtskalkulation eignet sich für Märkte mit freier Preisgestaltung.
 
 \begin{table}
     [H]
-    \centering
-    \begin{tabularx}{\textwidth}{c|X}
+    \begin{tabular}{c|l}
           & Listeneinkaufspreis (LEP) \\
         \hline
         - & Lieferrabatt              \\
@@ -117,19 +114,18 @@ Die Vorwärtskalkulation eignet sich für Märkte mit freier Preisgestaltung.
         + & Kundenrabatt              \\
         \hline
         = & Listenverkaufspreis (LVP) \\
-    \end{tabularx}
-    \caption{Schema Vorwärtskalkulation}
+    \end{tabular}
     \label{tab:vorwaertskalkulation}
 \end{table}
 
 Siehe Verkaufskalkulation für die Berechnung von ZVP und LVP.
 
-\textbf{Rückwärtskalkulation}
+\subsection{Rückwärtskalkulation}
 
 Die Rückwärtskalkulation eignet sich für Märkte mit vorgegebenen Verkaufspreisen.
 
 Das Schema der Rückwärtskalkulation ist gleich dem Schema der Vorwärtskalkulation. Allerdings ist letztere Umzudrehen, Vorzeichen werden invertiert und die besondere Berechnung vo ZVP und LVP wie in der Verkaufskalkulation wird stattdessen auf die Berechnung des ZEP und LEP angewendet.
 
-\textbf{Differenzkalkulation}
+\subsection{Differenzkalkulation}
 
 Die Differenzkalkulation berechnet den Gewinn bei festem oder marktüblichen Listeneinkaufspreis und Listenverkaufspreis als Differenz von Selbstkosten und Barverkaufspreis. Es wird ein beliebiges Schema der Handelskalkulation verwendet und aus beiden Richtung bis zu Selbstkosten und Barverkaufspreis berechnet.
