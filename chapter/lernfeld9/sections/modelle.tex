@@ -1,0 +1,57 @@
+\section{Netzwerksoftwaremodelle}
+
+Netzwerke sind meist in hierarchische Schichten (Layers) aufgeteilt. Jede Schicht bietet den höheren Schichten bestimmte Services und kümmert sich alleine um die Implementation dieser Services.
+
+Die Kommunikation findet dabei in der Theorie in den einzigen Schichten statt und wird von Protokollen dieser Schichten geregelt.
+
+\begin{figure}[H]
+    \centering
+    \includesvg[width=\textwidth,inkscapelatex=false]{figures/Netzwerkmodell.drawio.svg}
+    \caption{Beispiel Schichtmodell allgemein}
+    \label{fig:schichtmodell}
+\end{figure}
+\FloatBarrier
+
+Ein Host hat pro Schicht eine Kommunikationskomponente gen. Peer, die mit einem Peer der gleichen Schicht eines anderen Hosts kommunizieren kann. Praktisch sind Peers z.B. Softwareprozesse, Hardwaregeräte oder Menschen.
+
+Praktisch findet die Kommunikation nicht horizontal innerhalb der einzelnen Schichten, sonder vertikal zwischen den Schichten statt. Jede Schicht fügt Informationen hinzu, die für ihr Protokoll notwendig sind. Die Übertragung findet auf der untersten Schicht in einem physischen Medium statt.
+
+Zwischen zwei Schichten definieren Interfaces ähnlich Blaupausen welche Services die untere Schicht anbieten sollte.
+
+Eine Menge an Schichten und Protokollen wird als Netzwerkarchitektur bezeichnet. Eine Liste an Protokollen mit einem Protokoll für jede Schicht wird als Protokollstack bezeichnet.
+
+Protokolle benötigen mindestens Steuerinformationen zusätzlich zu den eigentlichen Nutzdaten. Jedes Protokoll fügt Informationen hinzu und gibt seine Nutzdaten plus die zusätzliche Informationen an das untere Protokoll als seine Nutzdaten weiter. Dieser Vorgang läuft auf der Zielmaschine Rückwärts ab. Das zugrunde liegende Prinzip nennt sich Datenkapselung.
+
+\begin{figure}[H]
+    \centering
+    \includesvg[width=\textwidth,inkscapelatex=false]{figures/Datenkapselung.drawio.svg}
+    \caption{Beispiel Datenkapselung im Netzwerkmodell}
+    \label{fig:Datenkapselung}
+\end{figure}
+\FloatBarrier
+
+\subsection{ISO Open Systems Interconnection Referenzmodell (OSI-Modell)}
+
+Das OSI-Modell ist keine Netzwerkarchitektur aber eine Vorlage für diese. Die einzelnen Schichten sind nach Funktionen getrennt.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|c|}
+        \hline
+        7 & Application / Anwendung    \\\hline
+        6 & Presentation / Darstellung \\\hline
+        5 & Session / Sitzung          \\\hline
+        4 & Transport                  \\\hline
+        3 & Network / Vermittlung      \\\hline
+        2 & Data Link / Sicherung      \\\hline
+        1 & Physical / Bitübertragung  \\\hline
+    \end{tabular}
+    \caption{ISO OSI-Modell Übersicht}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includesvg[width=\textwidth,inkscapelatex=false]{figures/OSI_allgemein.drawio.svg}
+    \caption{OSI-Modell}
+\end{figure}
+\FloatBarrier
