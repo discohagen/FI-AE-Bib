@@ -1,0 +1,91 @@
+\section{Zahlensysteme}
+
+In der IT gibt es folgende genutzte Stellenwertsysteme.
+
+Das \textbf{Binärsystem} besteht aus der Ziffernmenge [0, 1]. Das \textbf{Dezimalsystem} besteht aus der Ziffernmenge [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]. Das \textbf{Hexadezimalsystem} besteht aus der Ziffernmenge [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F].
+
+Das Binärsystem wird häufig in der IT genutzt, da Computer Daten durch Strom an oder Strom aus, also einem binären Zustand, darstellen. Das Dezimalsystem ist das dem Menschen vertraute Zahlensystem. Das Hexadezimalsystem wird meist genutzt um große Zahlen im Binärsystem kurz darzustellen.
+
+Um vom Dezimalsystem ausgehend in andere Zahlensysteme umzurechnen benutzt man die \textbf{Restwertdivision mit Textverknüpfung}. Bei dieser teilt man den Dezimalwert durch die Anzahl der Ziffern im Zielsystem und teilt die Ergebnisse solange bis man als Ergebnis 0 erreicht. Die Restwerte werden dann in die Ziffern mit gleichem Wert im Zielsystem umgewandelt und rückwärts textartig verknüpft.
+
+\begin{table} [H]
+    \centering
+    \begin{tabular}{rclr}
+        42 & : 2 = & 21 & Rest: 0 \\
+        21 & : 2 = & 10 & Rest: 1 \\
+        10 & : 2 = & 5  & Rest 0  \\
+        5  & : 2 = & 2  & Rest 1  \\
+        2  & : 2 = & 1  & Rest 0  \\
+        1  & : 2 = & 0  & Rest 1  \\\hline
+        \multicolumn{4}{c}{$\Rightarrow 42_{10} = 101010_2$}
+    \end{tabular}
+    \caption{Besipiel Restwertdivision dezimal zu binär}
+\end{table}
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabular}{rclr}
+        122 & : 16 = & 7 & Rest: 10 (A) \\
+        7   & : 16 = & 0 & Rest: 7      \\\hline
+        \multicolumn{4}{c}{$\Rightarrow 122_{10} = 7A_{16}$}
+    \end{tabular}
+    \caption{Beispiel Restwertdivision dezimal zu hexadezimal}
+\end{table}
+
+Um von einem anderen Stellenwertsystem ins Dezimalsystem umzurechnen benutzt man die Umrechnung über \textbf{gewichtete Summen}. Dabei multipliziert die einzelnen Stellen im Quellsystem mit dem dezimalen Zahlenwert der Stelle. Diesen Wert erhält man aus der Anzahl der Ziffern im Quellsystem potenziert mit dem Exponenten der Stelle im Quellsystem minus eins.
+
+Beispielsweise:
+
+\begin{center}
+    $101010_{2}$ \\
+    $1 * 2^5 + 0 * 2^4 + 1 * 2^3 + 0 * 2^2 + 1 * 2^1 + 0 * 2^0$\\
+    $1 * 32 + 0 * 16 + 1 * 8 + 0 * 4 + 1 * 2 + 0 * 1$\\
+    $42_{10}$\\
+\end{center}
+
+oder:
+
+\begin{center}
+    $AF12_{16}$ \\
+    $10 * 16^3 + 15 * 16^2 + 1 * 16^1 + 2 * 16^0$ \\
+    $10 * 4096 + 15 * 256 + 1 * 16 + 2 * 1$ \\
+    $44.818_{10}$
+\end{center}
+
+Um hexadezimal in binär und andersrum umzurechnen kann man entweder über das Dezimalsystem zwischenrechnen oder ein Methode mit Nibbles (Halbbytes) nutzen. Man kann zwei Stellen im Hexadezimalsystem einfach als ein Byte ansehen oder eine Stelle als ein Nibble, bestehend aus vier Bit. Dann nutzt man die gewichteten Werte einer Hexadezimalstelle und vier Binärstellen.
+
+\begin{table}
+    [H]\centering
+    \begin{tabular}{cccc|ccccl}
+        8                                                      & 4                             & 2 & 1 & 8 & 4 & 2 & 1 &      \\
+        1                                                      & 0                             & 1 & 0 & 1 & 0 & 1 & 1 & $_2$ \\
+        \multicolumn{4}{c|}{$10_{10}$}                         & \multicolumn{4}{c}{$11_{10}$} &                              \\
+        \multicolumn{4}{c|}{$A_{16}$}                          & \multicolumn{4}{c}{$B_{16}$}  &                              \\\hline
+        \multicolumn{8}{c}{$\Rightarrow 10101011_2 = AB_{16}$} &
+    \end{tabular}
+    \caption{Beispiel binär zu hexadezimal}
+\end{table}
+
+\begin{table}
+    [H]\centering
+    \begin{tabular}{cccc|ccccl}
+        \multicolumn{4}{c|}{$3_{16}$}                            & \multicolumn{4}{c}{$F_{16}$}  &                              \\
+        \multicolumn{4}{c|}{$3_{10}$}                            & \multicolumn{4}{c}{$15_{10}$} &                              \\
+        8                                                        & 4                             & 2 & 1 & 8 & 4 & 2 & 1 &      \\
+        0                                                        & 0                             & 1 & 1 & 1 & 1 & 1 & 1 & $_2$ \\\hline
+        \multicolumn{8}{c}{$\Rightarrow 3F_{16} = 00111111_{2}$} &
+    \end{tabular}
+    \caption{Beispiel hexadezimal zu binär}
+\end{table}
+
+Folgende Werte sollte man sich z.B. wegen dem Einsatz in IPv4 merken:
+
+\begin{itemize}
+    \item $2^4 = 16$ (eine Hexadezimalstelle)
+    \item $2^8 = 256$ (ein Byte, maximale Anzahl an Werten pro Oktett in IPv4, Anzahl der Adressen bei IPv4 mit /24 Maske)
+    \item $2^{10} = 1024$ (ein KibiByte (KiB))
+    \item $2^{16} = 65.536$ (maximale Anzahl an TCP/UDP-Ports, Anzahl der Adressen bei IPv4 mit /16 Maske)
+    \item $2^{24} = 16.777.216$ (Anzahl der Adressen bei IPv4 mit /24 Maske)
+    \item $2^{32} = 4.294.967.296$ (Anzahl aller Adressen in einem IPv4 Netz /0)
+\end{itemize}

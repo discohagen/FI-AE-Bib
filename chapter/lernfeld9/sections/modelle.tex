@@ -36,15 +36,15 @@ Das OSI-Modell ist keine Netzwerkarchitektur aber eine Vorlage für diese. Die e
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|l|c|}
+    \begin{tabular}{|l|l|}
         \hline
-        7 & Application / Anwendung    \\\hline
-        6 & Presentation / Darstellung \\\hline
-        5 & Session / Sitzung          \\\hline
-        4 & Transport                  \\\hline
-        3 & Network / Vermittlung      \\\hline
-        2 & Data Link / Sicherung      \\\hline
-        1 & Physical / Bitübertragung  \\\hline
+        7 & Application/ Anwendung    \\\hline
+        6 & Presentation/ Darstellung \\\hline
+        5 & Session/ Sitzung          \\\hline
+        4 & Transport                 \\\hline
+        3 & Network/ Vermittlung      \\\hline
+        2 & Data Link/ Sicherung      \\\hline
+        1 & Physical/ Bitübertragung  \\\hline
     \end{tabular}
     \caption{ISO OSI-Modell Übersicht}
 \end{table}
@@ -56,3 +56,47 @@ Das OSI-Modell ist keine Netzwerkarchitektur aber eine Vorlage für diese. Die e
 \end{figure}
 \FloatBarrier
 
+\begin{table}
+    [H]
+    \centering
+    \begin{tabularx}{\textwidth}{|c|l|l|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+        \hline
+        \textbf{ID} & \textbf{OSI}                     & \textbf{TCP/IP} & \textbf{Protokolle u. Techniken}  & \textbf{Einheiten} & \textbf{Kopplung}            & \textbf{Verbindung} \\\hline
+        7           & Application                      & Application     & DHCP, DNS, FTP, HTTP, HTTPS, SMTP & Daten              & Gateway, Proxy               & Ende zu Ende        \\\cline{1-2}
+        6           & Presentation                     &                 &                                   &                    &                              &                     \\\cline{1-2}
+        5           & Session                          &                 &                                   &                    &                              &                     \\\cline{1-5}
+        4           & \multicolumn{2}{c|}{Transport  } & TCP, UDP        & Segmente, Datagramme              &                    &                                                    \\\cline{1-6}
+        3           & Network                          & Internet        & ICMP, IP                          & Pakete             & Router                       &                     \\\cline{1-7}
+        2           & Data Link                        & Link            & Ethernet, WLAN, MAC               & Frames             & Bridge, Switch, WAP          & Punkt zu Punkt      \\\cline{1-2}\cline{5-6}
+        1           & Physical                         &                 &                                   & Bits, Symbole      & Netzwerkkabel, Repeater, Hub &                     \\\hline
+    \end{tabularx}
+    \caption{Vollständige Übersicht OSI und TCP/IP}
+\end{table}
+
+\subsection{Transmission Control Protocol/ Internet Protocol (TCP/IP)}
+
+Der TCP/IP-Stack ist die Gruppierung von Netzwerkprotokollen. Im weiteren Sinne der gesamte Stack für die Internetprotokollfamilie.
+
+Der Stack wird u.a. im TCP/IP-Referenzmodell dargestellt. Das Modell gilt damit als darstellung der TCP/IP-Netzwerkarchitektur.
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \multicolumn{2}{|l|}{\textbf{Schicht}} & \textbf{Besipielprotokolle}                                      \\\hline
+        4                                      & Application/ Anwendung      & HTTP, UDP, FTP, SMTP, Telnet, DHCP \\\hline
+        3                                      & Transport                   & TCP, UDP                           \\\hline
+        2                                      & Internet                    & IP, ICMP                           \\\hline
+        1                                      & Link/ Netzzugang            & \multicolumn{1}{c}{}               \\\cline{1-2}
+    \end{tabular}
+    \caption{TCP/IP-Modell Übersicht}
+\end{table}
+
+Die \textbf{Anwendungsschicht} befasst sich hier mit Protokollen für Anwendungsprogramme und die Netzinfrakstruktur für anwendungsspezifischen Datenaustausch.
+
+Die \textbf{Transportschicht} befasst sich mit der Ende-zu-Ende-Kommunikation.
+
+Die \textbf{Internetschicht} befasst sich mit der Übertragung von Paketen und der Wegwahl (Routing) dieser. Auf dieser Schicht und der Netzzugangsschicht werden Direktverbindungen betrachtet.
+
+Die \textbf{Netzzugangsschicht} beinhaltet keine Protokolle per se sondern ist ein Platzhalter für Techniken der Datenübertragung von Punkt zu Punkt.
