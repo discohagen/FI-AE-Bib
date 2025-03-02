@@ -1,0 +1,219 @@
+\section{TCP/IP-Stack Protokolle der Anwendungsschicht}
+
+\subsection{DHCP - Dynamic Host Configuration Protocol}
+
+DHCP ermöglicht die automatische Zuweisung von Netzwerkkonfigurationen (wie die IP-Adresse) an Clients durch einen Server im Gegensatz zu einer manuellen Konfiguration der CLients.
+
+\subsection{DNS - Domain Name System}
+
+DNS löst Domainnamen zu IP-Adressen auf.
+
+\subsection{FTP(S) - File Transfer Protocol (Secure)}
+
+FTP ist eine zustandsbehaftete Möglichkeit Dateien vom Client auf einen Server hochzuladen, herunterzuladen oder clientgesteuert Dateien zwischen zwei Servern zu übertragen. Es kann außerdem genutzt werden um Verzeichnisse anzulegen und diese und Dateien umzubenenen und zu löschen.
+
+FTPS ist die Secure Version von FTP via TLS.
+
+\subsection{HTTP(S) - Hypertext Transfer Protocol (Secure)}
+
+HTTP ist eine zustandslose Möglichkeit Daten zu übertragen. Hauptsächlich werden Hypertext-Dokumente aus dem World Wide Web (WWW) in ein Webbrowser geladen.
+
+HTTPS ist die Secure Version von HTTP und baut auf TLS auf.
+
+\subsection{IMAP - Internet Message Access Protocol}
+
+IMAP (ursprünglich Interactive Message Access Protocol) stellt ein Netzwerkdateisystem für E-Mails bereit. Es erweitert die Funktionen von POP um Mails, Ordnerstrukturen und Einstellungen auf Mailservern zu speichern, um die Abhängigkeit von einzelnen Clients zu umgehen.
+
+\subsection{POP - Post Office Protocol}
+
+POP (mittlerweile POP3) erlaubt das Auflisten, Abholen und Löschen von E-Mails von einem E-Mail-Server.
+
+\subsection{SMTP - Simple Mail Transfer Protocol}
+
+SMTP dient dem Versenden von E-Mails.
+
+\subsection{SOCKS - Internet-Sockets Protokoll}
+
+SOCKS erlaubt Client-Server-Anwendungen protokollunabhängig und transparent Dienste eines Proxyservers zu nutzen. Clients hinter einer Firewall verbinden sich nicht direkt mit einem externen Server, sondern zu einem SOCKS-Proxy. Dieser Proxyserver überprüft die Berechtigung des CLients, den externen Server zu kontaktieren und leitet die Anfrage an den Server weiter.
+
+\subsection{SSH - Secure Shell, SCP und SFTP}
+
+SSH ermöglicht den kryptographischen und damit sicheren Betrieb von Netzwerkdiensten über ungesicherte Netzwerke. SSH ist damit eine sichere Alternative zu Telnet. SSH wird auch oftmals genutzt um lokal auf eine entfernete Kommandozeile zuzugreifen.
+
+Secure Copy Protocol (SCP) ist die Dateiübertragung via SSH.
+
+SSH File Transfer Protocol oder Secure File Transfer Protocol (SFTP) ist die zweite Version von SCP.
+
+\section{TCP/IP-Stack Protokolle der Transportschicht}
+
+\subsection{TCP - Transmission Control Protocol}
+
+TCP dient der Verbindung von Netzwerkkomponenten zum Datenaustausch. Im Gegensatz zu UDP stellt TCP eine Verbindung zwischen zwei Endpunkten einer Netzverbindung (gen. Sockets) her. Auf dieser Verbindung können dann Daten in beide Richtungen übertragen werden (allerdings nicht gleichzeitig). Ein Endpunkt wird über die IP-Adresse und einen Port definiert. Eine TCP-Verbindung wird also aus den vier Werten Quell-IP, Quell-Port, Ziel-IP, Ziel-Port identifiziert. Die Identifikation ist über alle Werte eindeutig. Dies bedeutet wiederrum das mehrere eindeutige TCP-Verbindungen zwischen der gleichen Quell-IP mit gleichem Quell-Port zu einer Ziel-IP auf unterschiedlichen Ports möglich ist.
+
+\begin{table}
+    [H]
+    \begin{bytefield}[bitwidth={\textwidth/32}]{32}
+        \bitheader{0-31} \\
+        \bitbox{16}{source port} & \bitbox{16}{destination port} \\
+        \bitbox{32}{sequence number} \\
+        \bitbox{32}{acknowledgment number} \\
+        \bitbox{4}{data offset} & \bitbox{4}{reserved} & \bitbox{8}{control flags} & \bitbox{16}{window} \\
+        \bitbox{16}{checksum} & \bitbox{16}{urgent pointer} \\
+        \wordbox[lrt]{1}{options $\le 40B$} \\
+        \wordbox[lrb]{1}{$\cdots$} \\
+        \wordbox[lrt]{1}{payload} \\
+        \wordbox[lrb]{1}{$\cdots$} \\
+    \end{bytefield}
+    \caption{TCP-Segment}
+\end{table}
+
+\subsection{UDP - User Datagram Protocol}
+
+UDP ist eine minimale und verbindungslose alternative zu TCP. Außerdem ist es unzuverläßig, ungesichert und ungeschützt, so dass Pakete mögl. nicht, in falscher Reihenfolgen, mehr als einmal, manipuliert und oder einsehbar für Dritte ankommen.
+
+\begin{table}
+    [H]
+    \begin{bytefield}[bitwidth={\textwidth/32}]{32}
+        \bitheader{0-31} \\
+        \bitbox{16}{source port} & \bitbox{16}{destination port} \\
+        \bitbox{16}{total lenght} & \bitbox{16}{checksum} \\
+        \wordbox[lrt]{1}{payload} \\
+        \wordbox[lrb]{1}{$\cdots$} \\
+    \end{bytefield}
+    \caption{UDP-Datagramm}
+\end{table}
+
+\subsection{TLS - Transport Layer Securit}
+
+TLS (ehemals SSL (Secure Socket Layer)) ist ein Verschlüsselungsprotokoll.
+
+\section{TCP/IP-Stack Protokolle der Internetschicht}
+
+\subsection{IP - Internet Protocol Grundlagen}
+
+IP ist ein verbindungsloses Protokoll.
+
+\begin{table}
+    [H]
+    \begin{bytefield}[bitwidth={\textwidth/32}]{32}
+        \bitheader{0-31} \\
+        \bitbox{4}{version} & \bitbox{4}{IHL} & \bitbox{8}{TOS} & \bitbox{16}{total length} \\
+        \bitbox{16}{identification} & \bitbox{3}{flags} & \bitbox{13}{fragment offset} \\
+        \bitbox{8}{TTL} & \bitbox{8}{protocol} & \bitbox{16}{header checksum} \\
+        \bitbox{32}{source ipv4} \\
+        \bitbox{32}{destination ipv4} \\
+        \wordbox[lrt]{1}{options and padding $\le$ 40 B} \\
+        \wordbox[lrb]{1}{$\cdots$} \\
+        \wordbox[lrt]{1}{payload} \\
+        \wordbox[lrb]{1}{$\cdots$} \\
+    \end{bytefield}
+    \caption{IPv4-Paket}
+\end{table}
+
+\begin{itemize}
+    \item IHL (Internet Header Length): Gesamtlänge des Headers in Vielfachen von 32 Bit
+    \item TOS (Type of Service): Priorisierung von IP-Paketen (Quality of Service)
+    \item flags: Bit 0 ist reserviert; Bit 1 zeigt an ob das Paket fragmentiert werden darf (Don't fragment); Bit 2 zeigt an ob mehr Fragmente folgen (More fragments)
+    \item TTL (Time to Live): Ursprünglich Lebenszeit in Sekunden - heute Hop-Counter, welcher bei jedem Router runtergezählt wird; Bei 0 wird das Paket verworfen
+    \item protocol: Das Protokoll, welches für die Nutzdaten verwendet wird (6: TCP; 17: UDP)
+\end{itemize}
+
+\begin{table}
+    [H]
+    \begin{bytefield}[bitwidth={\textwidth/32}]{32}
+        \bitheader{0-31} \\
+        \bitbox{4}{version} & \bitbox{8}{traffic class} & \bitbox{20}{flow label} \\
+        \bitbox{16}{payload length} & \bitbox{8}{next header} & \bitbox{8}{hop limit} \\
+        \wordbox{4}{source ipv6} \\
+        \wordbox{4}{destination ipv6} \\
+    \end{bytefield}
+    \caption{IPv6-Paket}
+\end{table}
+
+\begin{itemize}
+    \item traffic class: Quality of Service
+    \item flow label: Ebenfalls für Quality of Service oder Echtzeitanwendungen verwendeter WertK; Pakete mit gleichem flow label werden gleich behandelt
+    \item payload length: Länge der Nutzdaten inkl. Erweiterungs-Kopfdaten
+    \item next header: nächster extension header oder Protokoll für Nutzdaten (6: TCP; 17: UDP)
+\end{itemize}
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabular}{|l|c|l|}
+        \hline
+        \textbf{Name}                  & \textbf{Typ} & \textbf{Beschreibung}                                 \\\hline
+        Hop-By-Hop Options             & 0            & Optionen für jedes Gerät, welche das Paket durchläuft \\\hline
+        Routing                        & 43           & Beeinflussung des Routingweges (z.B. für Mobile IPv6) \\\hline
+        Fragment                       & 44           & Parameter zur Fragmentierung (64 Bit)                 \\\hline
+        Encapsulation Security Payload & 50           & Verschlüsselungsdaten (IPsec)                         \\\hline
+        Authentication Header          & 51           & Authentifizierung des Paketes (IPsec)                 \\\hline
+        No Next Header                 & 59           & Ende des Header-Stapels                               \\\hline
+        Destination Options            & 60           & Optionen, welche der Zielrechner beachten muss        \\\hline
+        Mobility                       & 135          & Daten für Mobile IPv6                                 \\\hline
+    \end{tabular}
+    \caption{Mögliche Verweise des Next Header Feldes}
+\end{table}
+
+\section{TCP/IP-Stack Protokolle der Netzzugangsschicht}
+
+\subsection{ARP - Address Resolution Protocol}
+
+ARP soll zu einer IP-Adresse die zugehörige MAC-Adresse ermitteln. Es kann via Broadcast oder Unicast nach der MAC-Adresse einer bestimmten IP gefragt werden (ARP-Request) oder es kann eine bestimmte Zuordnung beliebigen Teilnehmern mitgeteilt werden (ARP-Reply). Jeder Client hält außerdem einen ARP-Cache, welcher durch ARP-Replys oder beliebige Pakete, welche IP-MAC-Zuordnungen beinhalten, aktualisiert werden kann. ARP ist an sich generisch designt, wird aber in der Praxis nur für IPv4 genutzt (für IPv6 gibt es das Neighbor Discovery Protocol).
+
+\begin{table}
+    [H]
+    \begin{bytefield}[bitwidth={\textwidth/32}]{32}
+        \bitheader{0-31} \\
+        \bitbox{16}{hardware address type} \bitbox{16}{protocol address type} \\
+        \bitbox{8}{hardware address size} \bitbox{8}{protocol address size} \bitbox{16}{operation} \\
+        \bitbox[ltb]{32}{source mac $\cdots$} \\
+        \bitbox[rtb]{16}{$\cdots$ source mac} \bitbox[ltb]{16}{source ip $\cdots$} \\
+        \bitbox[rtb]{16}{$\cdots$ source ip} \bitbox[ltb]{16}{destination mac $\cdots$} \\
+        \bitbox[rtb]{32}{$\cdots$ destination mac} \\
+        \bitbox{32}{destination ip} \\
+    \end{bytefield}
+    \caption{ARP-Paket}
+\end{table}
+
+\subsection{Ethernet und WLAN}
+
+Ethernet an sich ist eine Technik, welche Soft- und Hardware für kabelgebundene Datennetze spezifiziert. WLAN ist das Pendant für kabellose Datennetze. Es gibt verschieden Standards und Protokolle innerhalb beider Techniken. Die einfachsten und klassischen sind gelistet.
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabulary}{\textwidth}{|C|C|C|C|C|C|C|C|C|}
+        \hline
+        OSI & preamble               & SFD  & destination mac & source mac & type     & payload & FCS   & IPG \\\hline
+        2   & \multicolumn{2}{c|}{-} & $6B$ & $6B$                    & $2B$               & $\cdots$ & $4B$    &   -          \\\cline{1-3}\cline{9-9}
+        1   & $7B$                   & $1B$ &                     &                    &          &       &  & $12B$       \\\hline
+    \end{tabulary}
+    \caption{Ethernet-II}
+\end{table}
+
+\begin{itemize}
+    \item SFD: Start frame delimiter
+    \item FCS: Frame check sequence
+    \item IPG: Internetpacket gap
+\end{itemize}
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabulary}{\textwidth}{|C|C|C|C|C|C|C|C|C|C|C|}
+        \hline
+        frame control & duration/ id & mac 1 & mac 2 & mac 3 & sequence control & mac 4 & payload  & FCS  \\\hline
+        $2B$          & $2B$         & $6B$  & $6B$  & $6B$  & $2B$             & $6B$  & $\cdots$ & $4B$ \\\hline
+    \end{tabulary}
+    \caption{IEEE 802.11 (WLAN)}
+\end{table}
+
+\begin{itemize}
+    \item frame control: Typ des Frames und wie dieser verarbeitet wird
+    \item Für Daten- und Kontroll-Frames Dauer, wie lange das Medium benutzt wird; für Magament-Frames optionale ID
+    \item mac 1: destination mac
+    \item mac 2: source mac
+    \item mac 3: Im Infrastruktur-Modus gateway mac; im Ad-hoc-Modus (P2P) destination peer; im WDS (Wireless Distribution System) next chain mac
+    \item mac 4: Im WDS source gateway mac
+\end{itemize}
