@@ -1,8 +1,14 @@
 \section{IPv4}
 
+\subsection{Einführung IPv4}
+
 IPv4 ist die vierte Version des Internet Protokolls und die erste, welche erfolgreich weltweit eingesetzt wurde und wird. Es gehört zur Internetprotokollfamilie erklärt durch TCP/IP und wird der TCP/IP Schicht für Internet bzw. der OSI-Schicht 3 (Netzwerk/ Vermittlung) zugeordnet. Es ist ein Protokoll zu Wegfindung in einem Netzwerk und bietet hierarchische Adressen.
 
 IPv4 benutzt 32-Bit-Adressen. Eine Häufige Darstellungsart ist die Dezimalpunktschreibweise (decimal dotted), welche die Adresse in 4 Bytes teilt und diese durch Punkte getrennt dezimal darstellt. Diese Schreibweise ist menschlich besser lesbar aber sperrig bei Subnetting, welches innerhalb der sog. Oktette stattfindet. Der IPv4-Adressraum bietet in einem Gesamtnetz Platz für 4,3 Milliarden Adressen.
+
+IP-Adressen in einem Netzwerk sind eindeutig.
+
+\subsection{Adressierung}
 
 Die Internet Assigned Numbers Authority (IANA) vergibt IP-Adressen. Ursprünglich wurden die Adressen in Klassen eingeteilt. Dies ist aber wegen der Knappheit der IPv4-Adressen veraltet.
 
@@ -56,9 +62,76 @@ Heutzutage gelten private Netze. IPv4-Adressen in diesen Bereichen werden nicht 
 
 \subsection{Subnetting}
 
-- Netzmaske / Subnetzmaske
-- Netzwerkadresse / Netzadresse
-- Broadcastadresse
-- Max-Hosts
-- Adressierungsarten: Unicast, Broadcast, Multicast, Anycast
-- NAT
+Da es zahlreiche Probleme gibt ein globales IPv4-Netz aufzubauen, kann man dieses in Subnetze unterteilen (welche auch unterteilt werden können). Dafür trennt man eine IPv4-Adresse logisch in Netz(-adress)-teil, welcher das Subnetz identifiziert, und Geräteadressteil (Hostteil), welcher ein Gerät im Subnetz identifiziert. Subnetze lassen sich auch durch Supernetting wieder zu größeren Subnetzten zusammenfassen.
+
+Um zwischen Netz- und Hostteil zu unterscheiden benötigt man zu einer gegebenen Adresse eine (Sub-)Netzmaske (früher gab es feste Masken pro Netzklasse).
+
+Obwohl sie Netzmaske heißt, wird eigentlich der Hostteil maskiert - also verschleiert. Die Netzmaske ist eine 32-Bit Zahl, welche ununterbrochen erst aus Einsen und dann aus Nullen bestehen darf. Die Einsen repräsentieren dabei den Netzteil. Um den Netzteil wie ein Computer zu berechnen verknüpft man jedes Bit der IPv4-Adresse und der Subnetzmaske mit einem logischen Und. Wenn man den Hostteil errechnen will, verknüpft man IPv4-Adresse mit der invertierten Subtnetzmaske mit einem logischen Und.
+
+Anstatt die Subnetzmaske binär oder dezimal darzustellen, benutzt man auch die Netzteilbits (Also die Anzahl der Einsen in der Maske) als Schreibweise. Dies nennt sich die Classless Inter-Domain Routing (CIDR) Notation.
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabular}{|c|l|cccc|l|}
+        \hline
+            & IPv4     & 11000000 & 10101000 & 00000001 & 10000001 & 192.168.1.129 \\\hline
+        UND & Maske    & 11111111 & 11111111 & 11111111 & 00000000 & 255.255.255.0 \\\hline
+        =   & Netzteil & 11000000 & 10101000 & 00000001 & 00000000 & 192.168.1.0   \\\hline
+    \end{tabular}
+    \caption{Beispiel Ermittlung Netzteil auf Oktettgrenze}
+    \label{tab:lf9:bsp:ErmittlungNetzteil}
+\end{table}
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabular}{|c|l|cccc|l|}
+        \hline
+                  & IPv4     & 11000000 & 10101000 & 00000001 & 10000001 & 192.168.1.129 \\\hline
+        UND NICHT & Maske    & 11111111 & 11111111 & 11111111 & 00000000 & 255.255.255.0 \\\hline
+        =         & Hostteil & 00000000 & 00000000 & 00000000 & 10000001 & 0.0.0.129     \\\hline
+    \end{tabular}
+    \caption{Beispiel Ermittlung Hostteil auf Oktettgrenze}
+\end{table}
+
+Der ermittelte Netztteil in Tabelle \ref{tab:lf9:bsp:ErmittlungNetzteil} ist gleichzeitig als Netzwerkadresse definiert. Dies ist stets die niedrigste Adresse im Netzwerk. Zusätzlich wird die höchste Adresse im Netzwerk als Broadcastadresse definiert.
+
+Um ein Punkt-zu-Punkt-Netzwerk zu realisieren wird entweder ein /30-Netz oder ein /31-Netz verwendet, da Netzwerk- und Broadcastadresse in diesem Szenario hinfällig sind. Dies wird häufig zwischen Provider-Privatnetz benutzt, da es hier nur den Provider-Server und privaten Router gibt.
+
+Da zwei Adressen reserviert sind bleiben also in einem beliebigen Subnetzwerk $2^{n} - 2$ Hosts, wobei $n$ die Anzahl der Bits zur Identifizierung des Hostteiles sind (Dies ist gleichzeitig die Anzahl aller Bits minus die Anzahl der Bits für den Netzteil).
+
+Für obiges Beispiel gilt eine maximale Anzahl von Hosts von $2^{32 - 24} - 2 = 254$.
+
+Es ist zu beachten, dass die binäre Darstellung Vorteile im Subnetting ermöglicht. Z.B. ist es einfacher Subnetze außerhalb der Netzklassen zu bilden. Also Netz- und Hostteil innerhalb eines Oktetts zu trennen.
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabular}{|l|l|cccc|}
+        \hline
+                & IP       & 10       & 20       & 30       & 0        \\\cline{3-6}
+                &          & 00001010 & 00010100 & 00011110 & 00000000 \\\hline
+        $\land$ & NM (/21) & 11111111 & 11111111 & 11111000 & 00000000 \\\hline
+        =       & Netzwerk & 00001010 & 00010100 & 00011000 & 00000000 \\\cline{3-6}
+                &          & 10       & 20       & 24       & 0        \\\hline
+    \end{tabular}
+    \caption{Beispiel Ermittlung Netzwerkadresse innerhalb eines Oktetts}
+\end{table}
+
+Für das Teilen eines gegebenen Netzwerkes in Subnetze ergeben sich die Möglichkeiten des fixed length subnet masking (FLSM), wobei jedes Subnetz die gleiche Größe haben muss, und des variable lenght subnet masking (VLSM), bei welchem unterschiedliche große Subnetze gebildet werden können. Zu Beachten ist, dass ein Netz in einem Schritt immer nur halbiert werden kann (da ein Bit zum Netzteil hinzugefügt wird und so zwei Subnetze ermöglicht).
+
+\subsection{Adressierungstypen}
+
+Wie bereits erwähnt gibt es unterschiedliche Typen von IP-Adressen, mit denen man einen oder mehrere Hosts erreichen kann.
+
+\begin{itemize}
+    \item Unicast: Eindeutige Adresse und Host
+    \item Broadcast: Alle Hosts in einem Netzwerk
+    \item Multicast: Mehrere Hosts (bei IPv4 nur in Multicast-Adressbereichen möglich)
+    \item Anycast: Erster Host aus einer Menge mit der gleichen IP (Bei IPv4 unmöglich)
+\end{itemize}
+
+\subsection{NAT - Netzwerkadressübersetzung}
+
+NAT ist eine angewandte Methode das Problem der Adressknappheit bei IPv4 zu umgehen. Wie bereits erwähnt werden Adressen des privaten Adressbereichs nicht ins Internet geroutet. Dafür wird gemäß NAT ein Paket über einen Router verändert, so dass die eindeutige Router-Adresse die IP im Paket überschreibt und die Kommunikation nach außen übernimmt. In der Praxis wird NAT auch auf globaler Ebene eingesetzt, so dass 3 durch NAT getrennte Bereiche entstehen: Das eigene Heimnetzwerk, das private Netzwerk des Anbieter und das öffentliche Internet.
