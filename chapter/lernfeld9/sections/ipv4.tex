@@ -1,14 +1,64 @@
 \section{IPv4}
 
-IPv4 ist die vierte Version des Internet Protokolls und die erste, welche erfolgreich weltweit eingesetzt wurde und wird. Es gehört zur Internetprotokollfamilie erklärt durch TCP/IP und wird der TCP/IP Schicht für Internet bzw. der OSI-Schicht 3 (Netzwerk/ Vermittlung) zugeordnet. Es ist ein Protokoll zu Wegfingung in einem Netzwerk und bietet hierarchische Adressen.
+IPv4 ist die vierte Version des Internet Protokolls und die erste, welche erfolgreich weltweit eingesetzt wurde und wird. Es gehört zur Internetprotokollfamilie erklärt durch TCP/IP und wird der TCP/IP Schicht für Internet bzw. der OSI-Schicht 3 (Netzwerk/ Vermittlung) zugeordnet. Es ist ein Protokoll zu Wegfindung in einem Netzwerk und bietet hierarchische Adressen.
 
 IPv4 benutzt 32-Bit-Adressen. Eine Häufige Darstellungsart ist die Dezimalpunktschreibweise (decimal dotted), welche die Adresse in 4 Bytes teilt und diese durch Punkte getrennt dezimal darstellt. Diese Schreibweise ist menschlich besser lesbar aber sperrig bei Subnetting, welches innerhalb der sog. Oktette stattfindet. Der IPv4-Adressraum bietet in einem Gesamtnetz Platz für 4,3 Milliarden Adressen.
+
+Die Internet Assigned Numbers Authority (IANA) vergibt IP-Adressen. Ursprünglich wurden die Adressen in Klassen eingeteilt. Dies ist aber wegen der Knappheit der IPv4-Adressen veraltet.
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabulary}{\textwidth}{|l|l|L|L|l|l|}
+        \hline
+        \textbf{Klasse} & \textbf{Präfix} & \textbf{Bereich}            & \textbf{Netzmaske}  & \textbf{Anzahl Netze} & \textbf{Anzahl Adressen} \\\hline
+        A               & 0               & 0.0.0.0 - 127.255.255.255   & 255.0.0.0 (/8)      & 128                   & 16.777.216               \\\hline
+        B               & 10              & 128.0.0.0 - 191.255.255.255 & 255.255.0.0 (/16)   & 16.384                & 65.536                   \\\hline
+        C               & 110             & 192.0.0.0 - 223.255.255.255 & 255.255.255.0 (/24) & 2.097.152             & 256                      \\\hline
+    \end{tabulary}
+    \caption{Netzklassen}
+\end{table}
+
+Heutzutage gelten private Netze. IPv4-Adressen in diesen Bereichen werden nicht ins Internet geroutet und können daher in verschiedenen privaten Netzen gleichzeitig verwendet werden.
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabulary}{\textwidth}{|L|L|L|}
+        \hline
+        \multicolumn{2}{|c|}{\textbf{Bereich}} & \textbf{Anzahl Adressen} \\\hline
+        10.0.0.0/8 & 10.0.0.0 - 10.255.255.255 & 16.777.216 \\\hline
+        172.16.0.0/12 & 172.16.0.0 - 172.31.255.255 & 1.048.576 \\\hline
+        192.168.0.0/16 & 192.168.0.0 - 192.168.255.255 & 65.536 \\\hline
+    \end{tabulary}
+    \caption{Private Netze}
+\end{table}
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Adresse(n)} & \textbf{Bedeutung}         \\\hline
+        0.0.0.0             & Platzhalter                \\\hline
+        100.64.0.0/10       & Carrier-Grade NAT          \\\hline
+        127.0.0.0/8         & Loopback                   \\\hline
+        169.254.0.0/16      & Zeroconf (APIPA)           \\\hline
+        192.0.2.0/24        & Dokumentation \& Beispiele \\\hline
+        198.18.0.0/15       & Benchmarking               \\\hline
+        198.51.100.0/24     & Dokumentation \& Beispiele \\\hline
+        203.0.113.0/24      & Dokumentation \& Beispiele \\\hline
+        224.0.0.0/4         & IPv4-Multicast             \\\hline
+        255.255.255.255     & Broadcast                  \\\hline
+    \end{tabular}
+    \caption{Übersicht spezieller Adressen}
+\end{table}
+
+\subsection{Subnetting}
 
 - Netzmaske / Subnetzmaske
 - Netzwerkadresse / Netzadresse
 - Broadcastadresse
 - Max-Hosts
 - Adressierungsarten: Unicast, Broadcast, Multicast, Anycast
-- veraltete Netzklassen (A: 0.0.0.0 - 127.255.255.255, B: 128.0.0.0 - 191.255.255.255, C: 192.0.0.0 - 223.255.255.255)
-- Private Bereiche (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)
-- Spezielle Adressen (127.0.0.0/8 Loopback, 169.254.0.0/16 APIPA, 192.0.2.0 /24 Dokumentation und Beispiele)
+- NAT
