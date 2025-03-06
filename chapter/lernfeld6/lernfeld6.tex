@@ -17,4 +17,60 @@ den unterschiedlichen Kommunikationsanforderungen an (Kommunikationsmodelle, Dee
 Sie \textbf{reflektieren} den Bearbeitungsprozess der Serviceanfragen und ihr Verhalten in Gesprächssituationen. Die Schülerinnen und Schüler diskutieren die Servicefälle und schlagen
 Maßnahmen zur Qualitätssteigerung vor.
 
-% Netzplantechnik
+\section{IT Service}
+
+\subsection{ITSM - IT Service Management}
+
+\subsection{ITIL - IT Infrastructure Library}
+
+\subsection{Ticketsysteme}
+
+\subsection{SLA - Service Level Agreements}
+
+\subsection{Eisenhauer Matrix}
+
+\subsection{Prozesskostenkalkulation}
+
+\section{Projektplanung}
+
+\subsection{Projektmanagement}
+
+\subsection{4-Phasen Modell}
+
+\subsection{Problemanalyse}
+
+\subsection{Projektcanvas}
+
+\subsection{Zielformulierung} (SMART)
+
+\subsection{Risikoanalyse}
+
+\subsection{Projektstrukturplan und Arbeitspakete}
+
+\subsection{Gantt-Diagramm}
+
+\subsection{Netzplantechnik}
+
+Der Netzplan setzt eine Vorgangsliste (IDs, Vorgang, Dauer, Vorgänger) voraus.
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \multicolumn{1}{c}{FAZ} & \multicolumn{1}{c}{}         & \multicolumn{1}{c}{FEZ} \\\hline
+        ID                      & \multicolumn{2}{c|}{Vorgang}                           \\\hline
+        D                       & GP                           & FP                      \\\hline
+        \multicolumn{1}{c}{SAZ} & \multicolumn{1}{c}{}         & \multicolumn{1}{c}{SEZ} \\
+    \end{tabular}
+    \caption{Vorgangsknoten}
+\end{table}
+
+\begin{itemize}
+    \item D = Dauer
+    \item FAZ = Frühester Anfangszeitpunkt (Bei erstem Vorgang null, sonst größter FEZ der Vorgänger)
+    \item FEZ = Frühester Endzeitpunkt (FAZ + D)
+    \item SAZ = Spätester Anfangszeitpunkt (SEZ - D)
+    \item SEZ = Spätester Endzeitpunkt (Bei letztem Vorgang null, sonst kleinster SAZ der Nachfolger)
+    \item GP = Gesamtpuffer (Summe der Puffer der Nachfolger; SAZ - FAZ)
+    \item FP = Freier Puffer (Puffer des Vorgangs; kleinster FAZ der Nachfolger - FEZ)
+\end{itemize}

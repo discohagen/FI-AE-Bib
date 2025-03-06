@@ -1,0 +1,13 @@
+\section{Verschlüsselung}
+
+Verschlüsselung kann man allgemein in zwei Arten unterteilen. Bei beiden Verfahren werden Schlüssel zwischen Kommunikationspartnern getauscht.
+
+Bei der \textbf{symmetrischen Verschlüsselung} existiert ein Schlüssel der vorab sicher zwischen den Kommunikationspartnern ausgetauscht wurde und von diesen sicher verwahrt wird. Der Schlüssel kann von allen Beteiligten zum Ver- und Entschlüsseln von Daten genutzt werden. Dieses Verfahren ist vergleichsweise schnell.
+
+Bei der \textbf{asymmetrischen Verschlüsselung} existiert ein Schlüsselpaar dessen Schlüssel jeweils nur für die Aufgabe des Ver- bzw. Entschlüsseln genutzt werden können. Der \textbf{Public Key} dient der Verschlüsselung und muss nicht geheim gehalten werden. Der \textbf{Private Key} muss geheim gehalten werden und dient der Entschlüsselung. Damit von einem Schlüssel nicht auf den anderen geschlossen werden kann, wird das Hashwertverfahren genutzt. Die asymmetrische Verschlüsselung ist langsamer als die symmetrische Verschlüsselung wegen dem Rechenaufwand durch die Hashwertberechnung.
+
+Das Verfahren für eine \textbf{digitale Signatur} baut auf der asymmetrischen Verschlüsselung auf. Allerdings wird hier der private Key genutzt um Informationen zu verschlüsseln, bzw. eine Signatur zu bilden. Der öffentliche Schlüssel kann dann genutzt werden um die Signatur zu überprüfen, aber nur derjenige mit dem private Key kann die Signatur erstellen und sich so mit dieser authentifizieren.
+
+\subsection{Hashfunktionen}
+
+Eine Hashfunktion ist allgemein eine Einwegfunktion. Sie ist eine Abbildung, welche eine Eingabemenge auf eine kleinere Zielmenge (gen. Hashwerte) abbildet. Mehrere Elemente der Eingabemenge können auf den gleichen Hashwert abgebildet werden. Es wird aber immer die gleiche Eingabe auf den gleichen Hashwert abgebildet. Die Hashwerte haben eine feste Länge, unabhängig von der Länge der Eingabe. 
