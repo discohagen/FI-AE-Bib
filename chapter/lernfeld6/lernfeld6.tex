@@ -53,7 +53,7 @@ Maßnahmen zur Qualitätssteigerung vor.
 
 Der Netzplan setzt eine Vorgangsliste (IDs, Vorgang, Dauer, Vorgänger) voraus. Vorgangsknoten werden im Netzplan durch Pfeile in Abhängigkeit dargestellt. Der kritische Pfad ergibt sich aus der geringsten Projektzeit, erkennbar an den Vorgängen ohne Puffer.
 
-\begin{table}
+\begin{figure}
     [H]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -63,7 +63,7 @@ Der Netzplan setzt eine Vorgangsliste (IDs, Vorgang, Dauer, Vorgänger) voraus. 
         \multicolumn{1}{c}{SAZ} & \multicolumn{1}{c}{}         & \multicolumn{1}{c}{SEZ} \\
     \end{tabular}
     \caption{Vorgangsknoten}
-\end{table}
+\end{figure}
 
 \begin{itemize}
     \item D = Dauer
@@ -74,3 +74,36 @@ Der Netzplan setzt eine Vorgangsliste (IDs, Vorgang, Dauer, Vorgänger) voraus. 
     \item GP = Gesamtpuffer (Summe der Puffer der Nachfolger; SAZ - FAZ)
     \item FP = Freier Puffer (Puffer des Vorgangs; kleinster FAZ der Nachfolger - FEZ)
 \end{itemize}
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabular}{|c|l|c|c|}
+        \hline
+        \textbf{ID} & \textbf{Vorgang}                & \textbf{Dauer} & \textbf{Vorgänger} \\\hline
+        1           & Infrastruktur ermitteln         & 1              & -                  \\\hline
+        2           & Arbeitsplatzbedarf ermitteln    & 2              & 1                  \\\hline
+        3           & Netzwerkplan entwerfen          & 1              & 1                  \\\hline
+        4           & Peripheriebedarf ermitteln      & 1              & 3                  \\\hline
+        5           & Hardware PC + Server beschaffen & 4              & 2                  \\\hline
+        6           & Software beschaffen             & 2              & 5                  \\\hline
+        7           & Netzwerkzubehör beschaffen      & 2              & 3; 5               \\\hline
+        8           & Peripherie beschaffen           & 1              & 4                  \\\hline
+        9           & Hardware PC + Server aufbauen   & 6              & 5                  \\\hline
+        10          & Server installieren             & 3              & 9                  \\\hline
+        11          & Netzwerk aufbauen               & 5              & 7                  \\\hline
+        12          & PC-Image anlegen                & 1              & 6; 10; 11          \\\hline
+        13          & Peripherie anschließen          & 1              & 8; 10; 11          \\\hline
+        14          & Netzwerkplan dokumentieren      & 2              & 13                 \\\hline
+        15          & Server-Image anlegen            & 1              & 10                 \\\hline
+        16          & PC-Remote installieren          & 1              & 12                 \\\hline 17 & Gesamtdokumentation erstellen & 3 & 14; 15; 16 \\\hline
+    \end{tabular}
+    \caption{Beispiel Vorgangsliste}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includesvg[width=\textwidth,inkscapelatex=false]{figures/Netzplan.drawio.svg}
+    \caption{Beispiel Netzplan anhand der Vorgangsliste}
+\end{figure}
+\FloatBarrier
