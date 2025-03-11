@@ -1,44 +1,45 @@
 {
-    "latex-workshop.latex.outDir": "%DIR%/out",
-    "latex-workshop.formatting.latex": "latexindent",
-    "latex-workshop.latex.tools": [
-        {
-            "name": "latexmk",
-            "command": "latexmk",
-            "args": [
-                "-shell-escape",
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "-pdf",
-                "-outdir=%DIR%/out",
-                "%DOC%"
-            ],
-            "env": {}
-        }
-    ],
+  "latex-workshop.latex.outDir": "%DIR%/out",
+  "latex-workshop.formatting.latex": "latexindent",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-shell-escape",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-outdir=%DIR%/out",
+        "%DOC%"
+      ],
+      "env": {}
+    }
+  ],
 
-    "cSpell.words": [
-        "Annuitätendarlehen",
-        "Ausb",
-        "BEEG",
-        "Bitübertragung",
-        "Bitübertragungsschicht",
-        "exkl",
-        "Fachinformatikerausbildungsverordnung",
-        "Kündigungsberechtigten",
-        "Lieferer",
-        "Mindest",
-        "Rückwärtskalkulation",
-        "Sonn",
-        "Teilnahmeort",
-        "Teilnutzenaspekten",
-        "textartig",
-        "Tilgungsanteil",
-        "Tilgungsbeträgen",
-        "Tilgungsregelung",
-        "Vorwärtskalkulation",
-        "weiterleasen",
-        "zustandsbehaftete"
-    ]
+  "cSpell.words": [
+    "Annuitätendarlehen",
+    "Ausb",
+    "BEEG",
+    "Bitübertragung",
+    "Bitübertragungsschicht",
+    "exkl",
+    "Fachinformatikerausbildungsverordnung",
+    "Kündigungsberechtigten",
+    "Lieferer",
+    "Mindest",
+    "Rückwärtskalkulation",
+    "softwarebasierte",
+    "Sonn",
+    "Teilnahmeort",
+    "Teilnutzenaspekten",
+    "textartig",
+    "Tilgungsanteil",
+    "Tilgungsbeträgen",
+    "Tilgungsregelung",
+    "Vorwärtskalkulation",
+    "weiterleasen",
+    "zustandsbehaftete"
+  ]
 }
