@@ -1,0 +1,91 @@
+\chapter{Übungen}
+
+\section{Netzwerke}
+
+\subsection{IPv4}
+
+\subsubsection{1.}
+
+Gegeben ist die IPv4-Adresse 10.20.30.0/21.
+
+\textbf{a.} Binäre Darstellung
+
+\begin{itemize}
+    \item IP: 00001010.00010100.00011110.00000000
+    \item NM: 11111111.11111111.11111000.00000000
+\end{itemize}
+
+\textbf{b.} Netz- und Hostteil
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabular}{lr|l}
+        IP: & 00001010.00010100.00011 & 110.00000000 \\
+        NW: & 11111111.11111111.11111 & 000.00000000 \\
+            & 21 bit                  & 11 bit       \\
+            & Netzteil                & Hostteil     \\
+    \end{tabular}
+    \caption{IPv4 1. Netz- und Hostteil}
+\end{table}
+
+\textbf{c.} Netzwerkadresse (NW)
+
+\begin{table}
+    [H]
+    \centering
+    \begin{tabular}{ll}
+        IP:                 & 00001010.00010100.00011110.00000000 \\
+        NM:                 & 11111111.11111111.11111000.00000000 \\
+        IP $\land$ NM = NW: & 00001010.00010100.00011000.00000000 \\
+    \end{tabular}
+    \caption{IPv4 1. Netzwerkadresse}
+\end{table}
+
+Oder dezimal: 10.20.24.0
+
+\textbf{d.} Broadcastadresse (BC)
+
+Die Broadcastadresse ergibt sich aus der Netzwerkadresse mit allen Hostbits auf 1:
+
+BC binär: 00001010.00010100.00011$|$111.11111111
+
+BC dezimal: 10.20.31.255
+
+\textbf{e.} Kleinste und Größte Hostadresse
+
+Die kleinste Hostadresse ist die Netzwerkadresse + 1, die größte Hostadresse ist die Broadcastadresse - 1.
+
+Kleinste Hostadresse (binär): 00001010.00010100.00011$|$000.00000001
+
+Kleinste Hostadresse (dezimal): 10.20.24.1
+
+Größte Hostadresse (binär): 00001010.00010100.00011$|$111.11111110
+
+Größte Hostadresse (dezimal): 10.20.31.254
+
+\textbf{f.} Anzahl der IPv4 Adressen und Hosts
+
+Die Anzahl der IPv4 Adressen ergibt sich aus der Anzahl der Hostbits oder dem Stellenwert des niederwertigsten Bits der Subnetzmaske.
+
+Anzahl IPs: $2^{11} = 2048$
+
+Anzahl Hosts: $2^{11} - 2 = 2046$
+
+\subsubsection{2.}
+
+Gegeben sind die folgenden IP-Adressen:
+
+\begin{itemize}
+    \item 12.13.14.16/25
+    \item 12.13.14.32/25
+\end{itemize}
+
+Liegen die beiden Adressen im selben Subnetz?
+
+\begin{enumerate}
+    \item Binäre Darstellung bestimmen: \\ 00001100.00001101.00001110.00010000 und \\ 00001100.00001101.00001110.00100000
+    \item Subnetzmaske bestimmen: \\ 11111111.11111111.11111111.1000000
+    \item Netzwerkadressen berechnen: \\ 00001100.00001101.00001110.00000000 = 12.13.14.0 und \\ 00001100.00001101.00001110.00100000 = 12.13.14.32
+    \item Vergleich der Netzwerkadressen $\Rightarrow$ Die Netze liegen nicht im gleichen Subnetz $\square$
+\end{enumerate}

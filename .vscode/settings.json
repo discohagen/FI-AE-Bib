@@ -18,12 +18,20 @@
     }
   ],
 
+  "plantuml.exportIncludeFolderHeirarchy": false,
+  "plantuml.exportOutDir": "figures",
+  "plantuml.exportSubFolder": false,
+  "plantuml.lintDiagramNoName": false,
+
+  "editor.formatOnSave": false,
+
   "cSpell.words": [
     "Annuitätendarlehen",
     "Ausb",
     "BEEG",
     "Bitübertragung",
     "Bitübertragungsschicht",
+    "enduml",
     "exkl",
     "Fachinformatikerausbildungsverordnung",
     "Kündigungsberechtigten",
@@ -32,6 +40,8 @@
     "Rückwärtskalkulation",
     "softwarebasierte",
     "Sonn",
+    "startuml",
+    "Subnetting",
     "Teilnahmeort",
     "Teilnutzenaspekten",
     "textartig",

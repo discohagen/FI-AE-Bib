@@ -1,0 +1,36 @@
+@startuml
+
+mainframe Aktivitätsdiagramm: Fingerabdruck-Recherche
+
+    |Auftraggeber|
+    start
+    :Fingerabdruck verschicken;
+
+    |Operator|
+    :Qualität prüfen;
+    if () then (Qualität nicht ok)
+        :Information über Qualität verschicken;
+        |Auftraggeber|
+    else (Qualität ok)
+        |Operator|
+        :Fingerabdruck suchen;
+        if () then (Fingerabdruck nicht gefunden)
+            :Information über Fund verschicken;
+        else (Fingerabdruck gefunden)
+            fork
+                :Report erstellen;
+            fork again
+                :Auftragsdaten verschicken;
+                |Supervisor|
+                :Auftragsdaten protokollieren;
+                :Information über Protokoll verschicken;
+                |Operator|
+            end fork
+            :Report verschicken;
+        endif
+    endif
+
+    |Auftraggeber|
+    stop
+
+@enduml
